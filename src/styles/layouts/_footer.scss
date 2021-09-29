@@ -1,0 +1,138 @@
+footer {
+    background-color: #222;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #949494;
+    font-size: 12px!important;
+    .top {
+        max-width: 940px;
+        margin: auto;
+        border-bottom: 1px solid #94949462;
+        p {
+            color: #fff
+        }
+        a {
+            color: #949494;
+            text-decoration: none;
+            transition: all .5s;
+            cursor: pointer;
+            margin-bottom: 5px;
+            &:hover {
+                color: #fff;
+            }
+        }
+        .logoApp {
+            width: 30px;
+            cursor: pointer;
+        }
+
+       
+
+        .partner {
+            display: flex;
+            flex-flow: wrap;
+            margin-bottom: 10px;
+            img {
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                margin-right: 15px;
+                margin-bottom: 15px;
+                background-color: #fff;
+                cursor: pointer;
+                transition: all .2s;
+                &:hover {
+                    opacity: .7;
+                }
+            }
+        }
+    }
+
+    .bottom {
+        max-width: 940px;
+        margin: auto;
+        padding-top: 20px;
+        .left {
+            padding: 0!important;
+            img {
+                width: 80px;
+                border-radius: 8px;
+            }
+        }
+
+        .text-white {
+            color: #fff;
+        }
+
+        a {
+            color: #fb4226;
+        }
+
+        .right {
+            text-align: right;
+            padding: 0!important;
+            img {
+                width: 130px;
+            }
+        }
+        
+    }
+
+    svg {
+        transition: all .5s;
+        g {
+            stroke: #fff!important;
+            fill: #fff;
+        }
+        &:hover {
+            opacity: .8;
+            transform: scale(0.98);  
+        }
+    }
+
+    .responsive {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 875px) {
+    footer {
+        .top {
+            display: none;
+        }
+
+        .responsive {
+            display: block;
+            border-bottom: 1px solid #94949462;
+
+            .top-responsive {
+                flex-flow: wrap;
+                a {
+                    color: #949494;
+                    text-decoration: none;
+                    transition: all .3s;
+                    &:hover {
+                        color: #fff;
+                    }
+                }
+               
+            }
+        }
+
+        .bottom {
+            border-bottom: 1px solid #94949462;
+            .col-9, .col-1, .col-2 {
+                max-width: unset;
+                flex: unset;
+                text-align: center;
+                margin-bottom: 25px;
+            }
+        }
+
+        svg {
+            margin-top: 20px;
+        }
+        
+    }
+
+}

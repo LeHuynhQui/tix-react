@@ -1,0 +1,226 @@
+#tinTuc {
+    @include nav-tabs()
+}
+
+#tinTuc {
+    margin-top: 0px!important;
+    position: relative;
+    &::before{
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: url("https://tix.vn/app/assets/img/icons/back-news.png") no-repeat;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }    
+    .nav-tabs {
+        padding-top: 60px; 
+        padding-bottom: 80px;
+    }
+
+    .top, .bottom {
+        img {
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+    
+        h6 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 20px;
+            height: 42px;
+            font-size: 16px;
+            transition: color .2s;
+            margin-bottom: 5px;
+            &:hover {
+                color: #fb4226;
+                cursor: pointer;
+            }
+
+        }
+        p {
+            text-align: justify;
+            font-size: 13px;
+            color: #4a4a4a;
+            padding: 0 5px 0 0;
+            line-height: 19px;
+            letter-spacing: .17;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: 55px;
+            margin-bottom: 15px;
+        }
+
+        .icon {
+            float: left;
+            width: 100%;
+            height: 25px;
+            .like, .comment{
+                transition: all .2s;
+                cursor: pointer;
+                img {
+                    display: table-cell;
+                    vertical-align: middle;
+                    margin-right: 10px;
+                    margin-top: 2px;
+                    height: auto;
+                    width: 18px;
+                    transition: all .2s;
+                }
+                p {
+                    height: unset;
+                    color: #bbb;
+                    font-size: 12px;
+                    line-height: 1;
+                }
+                &:hover {
+                    img {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+        .bottom_right {
+            img {
+                width: 50px;
+                height: 50px;
+                object-fit: cover;
+            }
+            .col-9 {
+                padding-left: 0!important;
+                
+            }
+        }
+        
+    }
+
+    button {
+        font-size: 14px;
+        color: #949494;
+        border: 1px solid #949494;
+        border-radius: 4px;
+        text-align: center;
+        background: 0 0;
+        padding: 7px 25px;
+        transition: all .4s;
+        margin: auto;
+        margin-top: 35px;
+        margin-bottom: 20px;
+        display: block;
+        &:hover {
+            background-color: #fb4226;
+            border-color: #fb4226;
+            color: #fff!important;
+        }
+    }
+
+}
+
+
+@media screen and (max-width: 575px) {
+    #tinTuc .top h6 {
+        display: block;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: unset;
+        overflow: unset;
+        text-overflow: unset;
+        line-height: 20px;
+        height: unset;
+        font-size: 16px;
+        transition: color 0.2s;
+        margin-bottom: 10px;
+        white-space: pre-wrap;
+    }
+    #tinTuc .top p, #tinTuc .bottom p {
+        display: block;
+        text-align: unset;
+        font-size: 13px;
+        color: #4a4a4a;
+        padding: 0 5px 0 0;
+        line-height: 19px;
+        letter-spacing: 0.17;
+        -webkit-line-clamp: unset;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: unset;
+        margin-bottom: 15px;
+    }
+
+    #tinTuc .top .icon, #tinTuc .bottom .icon {
+        margin-bottom: 20px;
+    }
+
+    #tinTuc .bottom_right .col-sm-9 {
+        width: 85%;
+    }
+
+    #tinTuc .bottom_right .col-sm-3 {
+        width: 15%;
+    }
+
+    #tinTuc .bottom .bottom_right img {
+        margin-bottom: 20px;
+    }
+
+    #tinTuc .bottom {
+        h6 {
+            display: -webkit-box!important;
+            -webkit-line-clamp: 2!important;
+            -webkit-box-orient: vertical!important;
+            overflow: hidden!important;
+            text-overflow: ellipsis!important;
+            line-height: 20px!important;
+            height: 42px!important;
+            font-size: 16px!important;
+            transition: color .2s!important;
+            margin-bottom: 5px!important;
+          
+        }
+    }
+
+    #tinTuc .col-sm-9 h6 {
+        margin-left: 10px;
+    }
+}
+
+
+@media screen and (max-width: 465px) {
+    #tinTuc .nav-tabs.nav .nav-link {
+        font-size: 15px;
+        padding: 6px;
+        &:hover {
+        font-size: 18px;
+
+        }
+    }
+
+    #tinTuc .nav-tabs.nav .nav-link.active {
+        font-size: 18px;
+    }
+
+}
+
+
+// @media screen and (max-width: 375px) {
+//     #tinTuc .nav-tabs.nav .nav-link {
+//         font-size: 13px;
+//         &:hover {
+//         font-size: 15px;
+
+//         }
+//     }
+
+//     #tinTuc .nav-tabs.nav .nav-link.active {
+//         font-size: 15px;
+//     }
+
+// }

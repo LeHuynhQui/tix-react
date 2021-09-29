@@ -1,0 +1,42 @@
+
+@media screen and (max-width: 1000px) {
+    .under-maintenance > div {
+        width: 500px!important;
+    }
+}
+
+
+@media screen and (max-width: 520px) {
+    .under-maintenance > div {
+        width: 300px!important;
+    }
+    
+}
+
+@media screen and (max-width: 430px) {
+    .not-found > div {
+        width: 300px!important;
+    }
+}
+
+@media screen and (max-width: 815px) {
+    .coming-soon > div {
+        width: 80vh!important;
+        height: auto!important;
+    }
+}
+
+@media screen and (max-width: 655px) {
+    .coming-soon > div {
+        width: 60vh!important;
+        height: auto!important;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    .coming-soon > div {
+        width: 300px!important;
+        height: auto!important;
+    }
+}

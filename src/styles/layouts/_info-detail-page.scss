@@ -1,0 +1,27 @@
+.info {
+    @include nav-tabs();
+    position: relative;
+    z-index: 2;
+    .nav-tabs {
+        padding-top: 0;
+        padding-bottom: 60px;
+
+        &.nav {
+            .nav-link {
+                color: #fff;
+                background-color: transparent;
+                &.active {
+                    color: #fb4226;
+                    font-size: 24px;
+                }
+                &:hover {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}
+
+.thongTin {
+    color: #fff;
+}

@@ -1,0 +1,114 @@
+.searchBar {
+    position: relative;
+    .searchBar_wapper {
+        // display: block;
+        max-width: 940px;
+        margin: auto;
+        height: 80px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        left: 50%;
+        transform: translate(-50%,50%);
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgb(0 0 0 / 30%);
+        -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 30%);
+        -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+        z-index: 1;
+
+        .col-4, .col-2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0!important;
+            padding-left: 15px!important;
+            p {
+                margin-bottom: 0!important;
+            }
+
+            .border-right {
+                border-right: 1px solid #949494;
+            }
+
+            i {
+                color: #949494;                
+            }
+
+            div {
+                cursor: pointer;
+            }
+
+            button {
+                background-color: #4a4a4a;
+                border: none;
+                text-transform: uppercase;
+                border-radius: 4px;
+                top: 50%;
+                left: 50%;
+                padding: 10px 15px;
+                color: #fff;
+                &.mua {
+                    background-color: #fb4226;
+                }
+            }
+        }
+
+        h6 {
+            text-transform: capitalize;
+        }
+    }   
+}
+
+.phimList, .rapList, .ngayList, .suatchieuList {
+    // z-index: 100;
+    position: absolute;
+    max-height: 210px;
+    overflow-y: scroll;
+    top: 100%;
+    left: 0;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+    box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+    // z-index: 10!important;
+    padding-bottom: 0;
+    h6 {
+        position: relative;
+        font-size: 14px;
+        width: 100%;
+        font-weight: 400;
+        padding: 3px 20px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        &:hover {
+            background-color: #60c5ef;
+            color: #fff;
+        }
+    }
+}
+
+.phim, .rap, .ngay, .suat {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+@media screen and (max-width: 992px) {
+    .searchBar {
+        display: none;
+    }
+}

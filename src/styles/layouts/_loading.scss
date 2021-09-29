@@ -1,0 +1,41 @@
+.loading {
+    height: calc(100vh - 60px);
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    z-index: 100000000;
+    overflow: hidden;
+    img {
+        width: 150px;
+        animation: loadingEffcet 1s infinite alternate-reverse ease-in-out;
+    };
+}
+
+@keyframes loadingEffcet {
+    0% {
+        transform: scale(1.2);
+    }
+
+    25% {
+        transform: rotate(10deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(-10deg);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+

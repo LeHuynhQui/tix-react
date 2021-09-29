@@ -1,0 +1,6 @@
+.register {
+    @include logIn-register();
+    img {
+        margin-bottom: 30px!important
+    }
+}

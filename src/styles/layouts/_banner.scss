@@ -1,0 +1,94 @@
+.banner {
+    margin-top: 60px;
+    width: 100%;
+    height: 72vh;
+    position: relative;
+    .carousel-inner {
+        width: 100%;
+        height: 100%;
+        .banner__wrapper {
+            cursor: pointer;
+            transition: all .4s;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            img {
+                width: 100%;
+                height: 100%;
+    
+            }
+    
+            i {
+                font-size: 20px;
+                color: #fff;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                border: 1px solid #fff;
+                line-height: 80px;
+                text-align: center;
+                opacity: .7;
+                transition: all .5s;
+                opacity: 0;
+                background-color: rgba(0, 0, 0, 0.349);
+                &:hover {
+                 opacity: 1;
+                    transform: translate(-50%, -50%) scale(.95);
+                }
+            }
+            &:hover {
+                i {
+                    opacity: 1;
+                }
+            }
+        }
+
+        
+    }
+    
+    .carousel-control-prev-icon {
+        background-image: url("https://tix.vn/app/assets/img/icons/back-session.png")!important;
+        width: 50px;
+        height: 50px;
+    }
+    .carousel-control-next-icon {
+        background-image: url("https://tix.vn/app/assets/img/icons/next-session.png")!important;
+        width: 50px;
+        height: 50px;
+    }
+
+    .carousel-indicators  {
+        z-index: 2;
+        bottom: 50px;
+        li {
+            background-color: #d8d8d8;
+            width: 12px;
+            height: 12px;
+            padding: 0;
+            border-radius: 50%;
+            border: none;
+            color: transparent;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            opacity: unset;
+        }
+        
+        .active {
+            background-color: #fb4226;
+        }
+    }
+
+}
+
+
+@media screen and (max-width: 767px) {
+    .banner {
+        display: none;
+    }
+
+}

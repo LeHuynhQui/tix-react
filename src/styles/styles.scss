@@ -1,0 +1,33 @@
+// @font-face {
+//     font-family: SF font;
+//     src: url(SF-UI-Display-Medium.otf) format("OpenType"),
+//     url("./fontTix/SF-UI-Display-Regular.otf") format("OpenType"),
+//     url("./fontTix/SF-UI-Text-Regular.otf") format("OpenType");
+//   };
+@import "./helper/variables";
+@import "./base/reset";
+@import "./helper/mixin";
+@import "./layouts/header";
+@import "./layouts/footer";
+@import "./layouts/banner";
+@import "./layouts/loading";
+@import "./layouts/search-bar";
+@import "./layouts/lichChieu";
+@import "./layouts/tinTuc";
+@import "./layouts/info-detail-page";
+@import "./layouts/ungDung";
+@import "./layouts/bg-detail-page";
+@import "./layouts/login";
+@import "./layouts/register";
+@import "./components/ageType2";
+@import "./components/rating-circle";
+@import "./layouts/hinhAnh-detail-page";
+@import "./layouts/cumRap";
+@import "./layouts/admin";
+@import "./components/button";
+@import "./layouts/booking";
+@import "./components/input-styles";
+@import "./components/trailer";
+@import "./layouts/review-detail-page";
+@import "./base/comom-responsive";
+@import "./layouts/notFound-page";

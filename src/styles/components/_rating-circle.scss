@@ -1,0 +1,32 @@
+.bg_chart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    &::before{
+        position: absolute;
+        content: "";
+        width: 60%;
+        height: 100%;
+        background-color: #13191d;
+        border-radius: 50%;
+    }
+    .CircularProgressbar  {
+        width: 60%!important;
+        position: relative;
+        .CircularProgressbar-trail {
+            stroke: #3a3a3a!important;
+        }
+        .CircularProgressbar-path {
+            stroke: #7ed321!important;
+            stroke-linecap: unset!important;
+        }
+    
+        .CircularProgressbar-text {
+            dominant-baseline: central!important;
+            fill: #fff!important;
+            font-size: 50px!important;
+        }
+    }
+}

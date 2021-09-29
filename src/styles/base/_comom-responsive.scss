@@ -1,0 +1,29 @@
+@media screen and (max-width: 992px) {
+    .container, .container-sm, .container-md {
+        max-width: unset;
+    }
+}
+
+@media screen and (max-width: 935px) {
+    .trailer div {
+        width: 600px;
+        height: 380px;
+    }
+   
+}
+
+@media screen and (max-width: 690px) {
+    .trailer div {
+        width: 400px;
+        height: 280px;
+    }
+   
+}
+
+@media screen and (max-width: 460px) {
+    .trailer div {
+        width: 280px;
+        height: 180px;
+    }
+   
+}

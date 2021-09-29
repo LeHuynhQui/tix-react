@@ -1,0 +1,192 @@
+.hinhAnh {
+    height: 60vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    .hinhAnh__content {
+        max-width: 940px;
+        margin: auto;
+        color: #fff;
+        .hinhAnh-wrapper {
+            position: relative;
+            cursor: pointer;
+            &:hover {
+                i {
+                    display: block;
+                }
+            }
+            i {
+                cursor: pointer;
+                display: none;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                line-height: 60px;
+                text-align: center;
+                border: 1px solid #fff;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: .5;
+                transition: all .5s;
+                &:hover {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(.9);
+                }
+            }
+        }
+        h1 {
+            font-size: 24px;
+            line-height: 35px;
+            text-transform: capitalize;
+            span {
+                line-height: 25px;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 960px) {
+    .detail .bg {
+        top: 0;
+        .blur {
+            height: 80%;
+            width: 100%;
+            transform: scale(1.1);
+            filter: blur(0);
+            -webkit-filter: blur(0);
+            background-position: top center!important;
+            height: 400px!important;
+        }
+        
+    }
+    .hinhAnh .hinhAnh__content {
+        .col-7 {
+            max-width: unset;
+            flex: unset;
+            width: 100vw;
+            position: absolute;
+            bottom: 0;
+            div {
+                padding: 20px;
+                width: 100vw;
+            }
+        }
+        .hinhAnh-wrapper {
+            display: none;
+            
+         }
+    }
+
+    .hinhAnh  {
+        height: 400px;
+        .col-3 {
+            display: none;
+        }
+    }
+}
+
+
+@media screen and (max-width: 730px) {
+    .thongTin {
+        flex-flow: column;
+        .col-6 {
+            width: 100vw;
+            flex: unset;
+            max-width: unset;
+            &.pl-4 {
+                padding-left: 15px!important;
+            }
+            &.thongTin-res {
+                .col-5 {
+                    flex: 0 0 50%;
+                    max-width: 50%;
+                }
+                .col-6 {
+                    flex: 0 0 50%;
+                    max-width: 50%;
+                }
+            }
+        }
+    }
+}
+
+
+// @media screen and (max-width: 640px) {
+//     .detailReview {
+//         .box {
+//             .start {
+//                 img {
+//                     height: 15px!important;
+//                 }
+//             }
+
+//             .ava {
+//                 left: 8%!important;
+//             }
+
+//         }
+        
+//     }
+// }
+
+
+@media screen and (max-width: 610px) {
+    .detailReview {
+        width: 100vw;
+        padding: 0;
+        .box {
+            width: 100vw;
+            margin: 0!important;
+            max-width: unset;
+            margin: auto!important;
+            padding: 0 10px!important;
+            .start {
+                img {
+                    height: 15px!important;
+                }
+            }
+
+            .ava {
+                left: 5%!important;
+            }
+
+        }
+        .comment {
+            width: 100vw;
+            margin: 0!important;
+            max-width: unset;
+            margin: auto!important;
+            padding-left: 10px!important;
+            padding-right: 10px!important;
+            background-color: unset!important;
+
+        }
+    }
+
+    .res-col-12 {
+        padding: 0!important;
+        width: 100vw;
+    }
+}
+
+
+
+@media screen and (max-width: 400px) {
+    .detailReview {
+        .box {
+            .ava {
+                left: 8%!important;
+            }
+            .start {
+                img {
+                    height: 13px!important;
+                    padding-right: 10px;
+                }
+            }
+        }
+        
+    }
+}

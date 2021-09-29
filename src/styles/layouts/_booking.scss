@@ -1,0 +1,324 @@
+.booking {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #9b9b9b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .left {
+        background-color: #fff;
+        padding: 20px;
+        width: 600px;
+        position: relative;
+        min-height: 680px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        .type, .date, .seat {
+            border: 1px solid #ca4137;
+            padding: 10px 15px!important;
+            border-radius: 5px;
+        }
+
+        .date {
+
+        }
+
+    
+        .seatMap {
+            display: flex;
+            flex-flow: wrap;
+            border: none;
+            margin-top: 30px;
+
+            div {
+                width: calc(100%/13);
+                display: flex;
+                justify-content: center;
+                span {
+                    display: inline-block;
+                    margin: 0!important;
+                    &.letter {
+                        // width: 20px;
+                        font-size: 16px;
+                    }
+                    &.square {
+                        width: 18px;
+                        height: 18px;
+                        border-radius: 1px;
+                        background-color: #d8d8d8;
+                        margin-right: 5px!important;
+                        margin-bottom: 15px!important;
+                        cursor: pointer;
+
+                        &.vip {
+                            background-color: #f45722;
+                        }
+                        &.dangChon {
+                            background-color: green;
+                        }
+                        &.trong {
+                            background-color: #d8d8d8;
+                        }
+                        &.daChon {
+                            background-color: #9B9B9B;
+                            &:hover {
+                                cursor: no-drop;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .legend {
+            position: absolute;
+            width: 100%;
+            justify-content: space-evenly;
+            left: 0;
+            bottom: 80px;
+            p {
+                margin: 0!important;
+                &.square {
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 1px;
+                    margin-right: 5px!important;
+                    &.vip {
+                        background-color: #f45722;
+                    }
+                    &.dangChon {
+                        background-color: green;
+                    }
+                    &.trong {
+                        background-color: #d8d8d8;
+                    }
+                    &.daChon {
+                        background-color: #9B9B9B;
+                    }
+                }
+            }
+            
+        }
+
+        .bottom {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            left: 0;
+            display: flex;
+            color: #fff;
+            .total {
+                height: 55px;
+                width: calc(65vw / 2);
+                background-color: #313131;
+                font-size: 20px;
+                text-align: center;
+                line-height: 55px;
+                border-bottom-left-radius: 5px;
+                span {
+                    color: #7a7878;
+                }
+            }
+            .checkOut {
+                height: 55px;
+                width: calc(65vw / 2);
+                background-color: #fb4226;
+                font-size: 20px;
+                text-align: center;
+                line-height: 55px;
+                cursor: pointer;
+                &.disabled {
+                    background-color: #ccc;
+                    cursor: no-drop;
+                }
+            }
+        }
+    }
+    .right {
+        background-color: #fff;
+        width: 450px;
+        min-height: 680px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+
+        .img {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            border-top-right-radius: 5px;
+
+            img {
+                width: 100%;
+                height: 400px;
+                object-fit: cover;
+                
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                background-color: #fff;
+                width: 200%;
+                height: 100%;
+                top: 98%;
+                left: -47px;
+                z-index: 2;
+                transform: rotate(10deg);
+            }
+        }
+        .content {
+            padding: 30px 20px;
+            h1 {
+                width: 100%;
+                text-align: center;
+                -webkit-line-clamp: 1;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                height: 48px;
+            }
+
+            p {
+                text-align: justify;
+                color: #4a4a4a;
+                line-height: 20px;
+                letter-spacing: 0.17;
+                display: -webkit-box;
+                -webkit-line-clamp: 5;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                height: 100px;
+            }
+        }
+
+    }
+}
+    
+
+.checkOut {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #dadada;
+    .ticket {
+        width: 300px;
+        height: 540px;
+        padding: 10px;
+        background-color: #5F8482;
+        border-radius: 5px;
+        user-select: none;
+        .top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            .ava {
+                width: 50px;
+                height: 50px;
+                border-radius: 5px;
+            }
+            .fa-chevron-left {
+                font-size: 20px;
+                color: #fff;
+                cursor: pointer;
+            }
+            
+        }
+        .tenRap {
+            text-align: center;
+            color: #fff;
+            font-size: 18px;
+            text-transform: uppercase;
+            width: 100%;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            margin-bottom: 5px;
+
+        }
+
+        .diaChi {
+            font-size: 14px;
+            text-align: center;
+            width: 100%;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .card-small {
+            background-color: #fff;
+            padding: 0 20px;
+            border-radius: 10px;
+            border-bottom: 2px dotted #ccc;
+            .top {
+                .col-4 {
+                    display: flex;
+                    flex-flow: column;
+                    height: 150px;
+                    justify-content: center;
+                    img {
+                        margin-top: 20px;
+                        width: 70px;
+                        height: 70px;
+                        margin-bottom: 20px;
+                        object-fit: cover;
+                        border-radius: 5px;
+                    }
+                    div {
+                        .light {
+                            color: #5F8482;
+                            font-weight: 400;
+                        }
+                        .dark {
+                            color: #344c4b;
+                            font-weight: bold;
+                            text-transform: uppercase; 
+                        }
+                    }
+                }
+            }
+
+            .bottom {
+                display: flex;
+                flex-flow: wrap;
+                justify-content: space-between;
+                .item {
+                    width: 50%;
+                    margin-bottom: 10px;
+                    .light {
+                        color: #5F8482;
+                        font-weight: 400;
+                    }
+                    .dark {
+                        color: #344c4b;
+                        font-weight: bold;
+                        text-transform: uppercase; 
+                        &.text {
+                            width: 100%;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+                    }
+                }
+            }
+        }
+
+        .maVach {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            img {
+                width: 100%;
+                height: 50px;
+            }
+            .name {
+                text-transform: uppercase;
+            }
+        }
+    }
+}
