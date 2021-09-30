@@ -322,3 +322,33 @@
         }
     }
 }
+
+
+
+@media screen and (max-width: 1000px) {
+    .booking {
+        .right {
+            display: none;
+        }
+        .left {
+            .bottom {
+                .total {
+                    width: 50%;
+                }
+                .checkOut {
+                    width: 50%;
+                }
+            }
+        }
+        
+    }
+
+}
+
+@media screen and (max-height: 679px) {
+    .booking {
+        height: 700px;
+        // overflow: scroll;
+    }
+
+}

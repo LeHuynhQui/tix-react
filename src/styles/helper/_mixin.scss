@@ -34,7 +34,8 @@
     top: 0;
     left: 0;
     z-index: 9999999999;
-    // overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
     .card-logIn {
         max-width: 360px;
         padding: 40px 32px 30px;

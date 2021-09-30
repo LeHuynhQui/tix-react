@@ -1,3 +1,19 @@
 .logIn {
     @include logIn-register()
 }
+
+
+
+@media screen and (max-width: 405px) {
+    .logIn {
+        .card-logIn {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            max-width: 300px;
+            .signin--message {
+                font-size: 13px!important;
+            }
+        }
+    }
+
+}
