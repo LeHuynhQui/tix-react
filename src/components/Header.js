@@ -68,15 +68,19 @@ export default function Header() {
     }
 
 
+    const hanldleClickAccount = () => {
+        history.push("/account")
+    }
+
     const renderUser = () => {
         if (user) {
             if (user.maLoaiNguoiDung === "QuanTri") {
                 return (
                     <div className="d-flex align-items-center">
                         <Link to="/admin" target="_blank" rel="noreferrer"><img className="admin-icon" style={{ width: "50px" }} src="https://static.vecteezy.com/system/resources/thumbnails/001/990/068/small/confidential-folder-protected-data-icon-vector.jpg" alt="icon admin" /></Link>
-                        <div className="account d-flex align-items-center dangXuat">
-                            <img className="mr-2" src={user.avatar ? user.avatar : "https://i.pravatar.cc/200"} alt="avatar" />
-                            <p className=" p-0 m-0">{user.hoTen}</p>
+                        <div className="account d-flex align-items-center dangXuat" >
+                            <img className="mr-2" src={user.avatar ? user.avatar : "https://i.pravatar.cc/200"} alt="avatar" onClick={hanldleClickAccount}/>
+                            <p className=" p-0 m-0" onClick={hanldleClickAccount}>{user.hoTen}</p>
                             <DangXuat />
                         </div>
                     </div>
@@ -147,12 +151,16 @@ export default function Header() {
                 return (
                     <div>
                         <Link to="/admin" target="_blank" rel="noreferrer" className="text-danger">Admin</Link>
+                        <Link to="/account" target="_blank" rel="noreferrer">Account</Link>
                         <DangXuat />
                     </div>
                 )
             }
             return (
-                <DangXuat />
+                <div>
+                    <Link to="/account" target="_blank" rel="noreferrer">Account</Link>
+                    <DangXuat />
+                </div>
             )
         }
     }

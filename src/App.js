@@ -8,8 +8,7 @@ import BookingRoute from "./routes/BookingRoute";
 import Loading from "./components/Loading";
 import ErrorBoundary from "./components/ErrorBoundary";
 
-
-
+const Account = lazy(() => import ("./modules/account/pages/Account"))
 const DetailPage = lazy(() => import("./modules/detailPage/pages/DetailPage"));
 const Login = lazy(() => import("./modules/login/pages/Login"));
 const Register = lazy(() => import("./modules/register/pages/Register"));
@@ -76,6 +75,10 @@ function App() {
             </BookingRoute>
 
             {/* Page not found */}
+
+            <Route path="/account">
+              <Account />
+            </Route>
 
             <Route path="/coming-soon">
               <ComingSoon />

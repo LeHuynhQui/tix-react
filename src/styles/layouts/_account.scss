@@ -1,0 +1,126 @@
+.user-account {
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .glass {
+        width: 0;
+        height: 0;
+        background: linear-gradient(
+        117.76deg, rgba(255, 255, 255, 0.7) -7.21%, rgba(255, 255, 255, 0.5) 118.08%);
+        backdrop-filter: blur(8px);
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        -ms-border-radius: 8px;
+        -o-border-radius: 8px;
+        border-radius: 8px;
+        -webkit-box-shadow: 0 10px 20px 0 rgb(0 0 0 / 2%);
+        -moz-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.02);
+        -ms-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.02);
+        -o-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.02);
+        box-shadow: 0 10px 20px 0 rgb(0 0 0 / 2%);
+        position: relative;
+        border: 0px solid #ffffff;
+
+        &.active {
+            width: 300px;
+            height: 400px; 
+            padding: 60px 20px 0px;
+        }
+        .ava {
+            position: fixed;
+            transition: all .5s;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            img {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                transition: all .5s;
+                cursor: pointer;
+
+            }
+            margin-bottom: 10px;
+            &.active {
+                position: absolute;
+                top: 30px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .click-me {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+            }
+            
+        }
+
+        h5 {
+            margin-bottom: 20px;
+            transition: all .5s;
+            color: #000;
+        }
+
+        h6 {
+            font-weight: 300!important;
+            width: 200px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            transition: all .5s;
+            &.ten {
+                text-transform: capitalize;
+            }
+        }
+
+        p {
+            text-decoration: underline;
+            color: blue;
+            cursor: pointer;
+            transition: all .3s;
+            &:hover {
+                opacity: 0.5;
+            }
+            &.no-drop {
+                opacity: 0.5;
+                cursor: no-drop;
+            }
+        }
+
+        .body-content {
+            width: 300px;
+            padding: 0 20px;
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            &.active {
+                display: block;
+            }
+        }
+    }
+
+    .back {
+        position: fixed;
+        top: 30px;
+        left: 30px;
+        i {
+            font-size: 30px;
+            color: #fff;
+            transition: all .2s;
+            &:hover {
+                cursor: pointer;
+                opacity: .8;
+                transform: scale(1.1);
+            }
+        }
+    }
+}
