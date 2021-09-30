@@ -12,6 +12,20 @@ export default function Account() {
 
     const [isHover, setIsHover] = useState(false)
 
+    const [hasChange, setHasChange] = useState(null)
+
+    const [isDisableHoten, setIsDisableHoTen] = useState(true)
+    const [isDisableSdt, setIsDisableSdt] = useState(true)
+
+    const [valueHoten, setValueHoten] = useState(null)
+    const [valueSdt, setValueSoDt] = useState(null)
+
+
+
+    // NHAP
+    const [soon, setSoon] = useState(null)
+
+
 
     if(!user) {
         return <Lotties />
@@ -36,6 +50,56 @@ export default function Account() {
         history.goBack()
     }
 
+    const change = (titile) => {
+        setHasChange(titile)
+    }
+
+    const handleChange = (event) => {
+        let {name, value} = event.target
+        if(name === "hoTen") {
+            if(value.trim()) {
+                setIsDisableHoTen(false)
+                setValueHoten(value)
+            } else {
+                setIsDisableHoTen(true)
+
+            }
+        }
+        if(name === "soDT") {
+            if(value.trim()) {
+                setIsDisableSdt(false)
+                setValueSoDt(value)
+            } else {
+                setIsDisableSdt(true)
+
+            }
+        }
+    }
+
+    const focus = () => {
+        setIsDisableHoTen(true)
+        setIsDisableSdt(true)
+        setValueHoten(null)
+        setValueSoDt(null)
+    }
+
+
+    const updateTen = () => {
+        if(!isDisableHoten) {
+            console.log("valueHoten", valueHoten)
+            setSoon("Tính năng đang được phát triển")
+        }
+    }
+
+
+    const updateSDT = () => {
+        if(!isDisableSdt) {
+            console.log("valueSDT", valueSdt)
+            setSoon("Tính năng đang được phát triển")
+        }
+    }
+    
+
     return (
         <div className="user-account">
             <div className={isHover ? "glass d-flex justify-content-center align-items-center active" : "glass d-flex justify-content-center align-items-center"}>
@@ -55,8 +119,9 @@ export default function Account() {
                         <hr />
 
                         <div className="d-flex justify-content-between py-2">
-                            <h6 className="ten">{userInfor.hoTen}</h6>
-                            <p className="mb-0">Thay đổi</p>
+                            {hasChange === "hoTen" ? <input type="text" placeholder= {userInfor.hoTen} name="hoTen" onFocus={focus} onChange={handleChange}/> : <h6 className="ten">{userInfor.hoTen}</h6>}
+                            {hasChange === "hoTen" ? <p className={isDisableHoten ? "mb-0 no-drop" : "mb-0"} onClick={updateTen}>Xác nhận</p> : <p className="mb-0" onClick={() => change("hoTen")}>Thay đổi</p>}
+                            
                         </div>
 
                         <div className="d-flex justify-content-between py-2">
@@ -66,8 +131,8 @@ export default function Account() {
                         </div>
 
                         <div className="d-flex justify-content-between py-2">
-                            <h6>{userInfor.soDT}</h6>
-                            <p className="mb-0">Thay đổi</p>
+                            {hasChange === "soDT" ? <input type="text" placeholder= {userInfor.soDT} name="soDT" onFocus={focus} onChange={handleChange}/> : <h6 className="ten">{userInfor.soDT}</h6>}
+                            {hasChange === "soDT" ? <p className={isDisableSdt ? "mb-0 no-drop" : "mb-0"} onClick={updateSDT}>Xác nhận</p> : <p className="mb-0" onClick={() => change("soDT")}>Thay đổi</p>}
                         </div>
 
 
@@ -75,6 +140,7 @@ export default function Account() {
                             <h6>*********</h6>
                             <p className="mb-0 no-drop">Thay đổi</p>
                         </div>
+                        {soon && <p className="text-danger">* {soon}</p>}
                     </div>
                 </div>
             </div>
