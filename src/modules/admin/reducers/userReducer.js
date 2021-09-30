@@ -1,9 +1,10 @@
-import { GET_USER_LIST_FAILURE, GET_USER_LIST_REQUEST, GET_USER_LIST_SUCCESS } from "../constants/admin"
+import { GET_SEARCH_USER_VALUE, GET_USER_LIST_FAILURE, GET_USER_LIST_REQUEST, GET_USER_LIST_SUCCESS } from "../constants/admin"
 
 const initialState = {
     users: [],
     isLoading: false,
     error: null,
+    searchUserValue: null,
 }
 
 export const userReducer = (state = initialState, action) => {
@@ -21,6 +22,11 @@ export const userReducer = (state = initialState, action) => {
         case GET_USER_LIST_FAILURE: {
 
             return { ...state, isLoading: false, error: action.error }
+        }
+
+        case GET_SEARCH_USER_VALUE : {
+            return { ...state, searchUserValue: action.searchUserValue }
+
         }
 
         default: {

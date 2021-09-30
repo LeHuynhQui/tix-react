@@ -9,7 +9,6 @@ export const getUser = () => {
 
         try {
             let {content} = await getUserAPI()
-            console.log(content)
             dispatch({
                 type: GET_USER_LIST_SUCCESS,
                 users: content

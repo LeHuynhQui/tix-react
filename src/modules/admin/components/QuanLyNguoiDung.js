@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { removeVietnameseTones } from '../../../utils/convertVietnamsese';
 import { getUser } from '../actions/admin';
 import ModalAddUser from './ModalAddUser';
 import ModalDeleteUser from './ModalDeleteUser';
 
 export default function QuanLyNguoiDung() {
     const { users } = useSelector(state => state.userReducer)
+
+    const { searchUserValue } = useSelector(state => state.userReducer)
+
 
     const dispatch = useDispatch()
     useEffect(() => {
@@ -48,28 +52,68 @@ export default function QuanLyNguoiDung() {
     }
 
     const renderTable = () => {
-        const usersCut = users.slice(-127)
-        return users.map((user, index) => {
-            return (
-                <tr className={(index + 1) % 2 === 0 ? "" : "le"} key={index}>
-                    <td className="tb-stt"><p className="m-0">{index + 1}</p></td>
-                    <td className="tb-ava">
-                        <img src={`https://i.pravatar.cc/50?${Math.random()}`} alt={user.hoTen} loading="lazy" />
-                    </td>
-                    <td className="tb-hoTen"><p>{user.hoTen.toLowerCase()}</p></td>
-                    <td className="tb-taiKhoan" style={{textTransform: "none"}}><p>{user.taiKhoan}</p></td>
-                    <td className="tb-matKhau"><p>{renderPassword(user.matKhau)}</p></td>
-                    <td className="tb-email"><p>{user.email}</p></td>
-                    <td className="tb-sdt">{user.soDt}</td>
-                    <td className="tb-khachHang"><p className={user.maLoaiNguoiDung === "KhachHang" ? "circle  mb-0  mt-2 circle-khachHang" : "circle  mb-0  mt-2"}></p></td>
-                    <td className="tb-quanTri"><p className={user.maLoaiNguoiDung === "QuanTri" ? "circle  mb-0  mt-2 circle-quanTri" : "circle  mb-0  mt-2"}></p></td>
-                    <td className="tb-setting">
-                        <button className="mr-2 mt-2 xoa" onClick={() => handleDelete(user.taiKhoan)}>Xoá</button>
-                        <button className="sua mt-2" onClick={() =>showModal(user)}>Sửa</button>
-                    </td>
-                </tr>
-            )
-        })
+        // const usersCut = users.slice(-127)
+
+        if (users && !searchUserValue) {
+            return users.map((user, index) => {
+                return (
+                    <tr className={(index + 1) % 2 === 0 ? "" : "le"} key={index}>
+                        <td className="tb-stt"><p className="m-0">{index + 1}</p></td>
+                        <td className="tb-ava">
+                            <img src={`https://i.pravatar.cc/50?${Math.random()}`} alt={user.hoTen} loading="lazy" />
+                        </td>
+                        <td className="tb-hoTen"><p>{user.hoTen.toLowerCase()}</p></td>
+                        <td className="tb-taiKhoan" style={{textTransform: "none"}}><p>{user.taiKhoan}</p></td>
+                        <td className="tb-matKhau"><p>{renderPassword(user.matKhau)}</p></td>
+                        <td className="tb-email"><p>{user.email}</p></td>
+                        <td className="tb-sdt">{user.soDt}</td>
+                        <td className="tb-khachHang"><p className={user.maLoaiNguoiDung === "KhachHang" ? "circle  mb-0  mt-2 circle-khachHang" : "circle  mb-0  mt-2"}></p></td>
+                        <td className="tb-quanTri"><p className={user.maLoaiNguoiDung === "QuanTri" ? "circle  mb-0  mt-2 circle-quanTri" : "circle  mb-0  mt-2"}></p></td>
+                        <td className="tb-setting">
+                            <button className="mr-2 mt-2 xoa" onClick={() => handleDelete(user.taiKhoan)}>Xoá</button>
+                            <button className="sua mt-2" onClick={() =>showModal(user)}>Sửa</button>
+                        </td>
+                    </tr>
+                )
+            })
+        }
+
+        if (users && searchUserValue) {
+            const mangSearch = users.filter(user => removeVietnameseTones(user.hoTen).toLowerCase().trim().replaceAll(" ", "").match(removeVietnameseTones(searchUserValue).toLowerCase().trim().replaceAll(" ", "")))
+
+            if (mangSearch.length === 0) {
+                return (
+                    <tr >
+                        <td colSpan={11} className="tb-stt">Không tìm thấy kết quả.</td>
+                    </tr>
+                )
+            }
+
+
+            return mangSearch.map((user, index) => {
+                return (
+                    <tr className={(index + 1) % 2 === 0 ? "" : "le"} key={index}>
+                        <td className="tb-stt"><p className="m-0">{index + 1}</p></td>
+                        <td className="tb-ava">
+                            <img src={`https://i.pravatar.cc/50?${Math.random()}`} alt={user.hoTen} loading="lazy" />
+                        </td>
+                        <td className="tb-hoTen"><p>{user.hoTen.toLowerCase()}</p></td>
+                        <td className="tb-taiKhoan" style={{textTransform: "none"}}><p>{user.taiKhoan}</p></td>
+                        <td className="tb-matKhau"><p>{renderPassword(user.matKhau)}</p></td>
+                        <td className="tb-email"><p>{user.email}</p></td>
+                        <td className="tb-sdt">{user.soDt}</td>
+                        <td className="tb-khachHang"><p className={user.maLoaiNguoiDung === "KhachHang" ? "circle  mb-0  mt-2 circle-khachHang" : "circle  mb-0  mt-2"}></p></td>
+                        <td className="tb-quanTri"><p className={user.maLoaiNguoiDung === "QuanTri" ? "circle  mb-0  mt-2 circle-quanTri" : "circle  mb-0  mt-2"}></p></td>
+                        <td className="tb-setting">
+                            <button className="mr-2 mt-2 xoa" onClick={() => handleDelete(user.taiKhoan)}>Xoá</button>
+                            <button className="sua mt-2" onClick={() =>showModal(user)}>Sửa</button>
+                        </td>
+                    </tr>
+                )
+            })
+        }
+
+        
     }
 
     const showModal = (user) => {
@@ -111,7 +155,6 @@ export default function QuanLyNguoiDung() {
                         </thead>
                         <tbody>
                             {renderTable()}
-
                         </tbody>
                     </table>
                 </div>

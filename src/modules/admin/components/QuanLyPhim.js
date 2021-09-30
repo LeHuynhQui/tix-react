@@ -8,8 +8,17 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import ModalAddMovie from './ModalAddMovie';
 import ModalUpdateMovie from './ModalUpdateMovie';
 
+import { removeVietnameseTones } from "./../../../utils/convertVietnamsese"
+
+
 export default function QuanLyPhim() {
+
+
+
+
     const { movies } = useSelector(state => state.movieReducer)
+    
+    const { searchPhimValue } = useSelector(state => state.movieAdminReducer)
 
     const dispatch = useDispatch()
 
@@ -59,31 +68,73 @@ export default function QuanLyPhim() {
         setPhimCanSua(movie)
     }
 
+   
+
     const renderTable = () => {
-        return movies.map((movie, index) => {
-            return (
-                <tr className={(index + 1) % 2 === 0 ? "" : "le"} key={index}>
-                    <td className="tb-stt">{index + 1}</td>
-                    <td className="tb-maPhim">{movie.maPhim}</td>
-                    <td className="tb-hinhAnh">
-                        <img src={movie.hinhAnh} alt={movie.tenPhim} />
-                    </td>
-                    <td className="tb-tenPhim"><p className="m-0">{movie.tenPhim.toLowerCase()}</p></td>
-                    <td className="tb-biDanh"><p className="m-0">{movie.biDanh}</p></td>
-                    <td className="tb-moTa"><p className="m-0">{movie.moTa}</p></td>
-                    <td className="tb-danhGia">
-                        {renderRating(movie.danhGia)}
-                    </td>
-                    <td className="tb-dangChieu"><p className={movie.dangChieu ? "circle  mb-0  mt-2 circle-dangChieu" : "circle  mb-0  mt-2"}></p></td>
-                    <td className="tb-sapChieu"><p className={movie.sapChieu ? "circle  mb-0  mt-2 circle-sapChieu" : "circle  mb-0  mt-2"} ></p></td>
-                    <td className="tb-hot"><p className={movie.hot ? "circle  mb-0  mt-2 circle-hot" : "circle  mb-0  mt-2"}></p></td>
-                    <td className="tb-setting">
-                        <button className="mr-2 mt-2 xoa" onClick={() => handleClick(movie.maPhim, movie.tenPhim)}>Xoá</button>
-                        <button className="sua mt-2" onClick={() => handleSua(movie)}>Sửa</button>
-                    </td>
-                </tr>
-            )
-        })
+        if (movies && !searchPhimValue) {
+            return movies.map((movie, index) => {
+                return (
+                    <tr className={(index + 1) % 2 === 0 ? "" : "le"} key={index}>
+                        <td className="tb-stt">{index + 1}</td>
+                        <td className="tb-maPhim">{movie.maPhim}</td>
+                        <td className="tb-hinhAnh">
+                            <img src={movie.hinhAnh} alt={movie.tenPhim} />
+                        </td>
+                        <td className="tb-tenPhim"><p className="m-0">{movie.tenPhim.toLowerCase()}</p></td>
+                        <td className="tb-biDanh"><p className="m-0">{movie.biDanh}</p></td>
+                        <td className="tb-moTa"><p className="m-0">{movie.moTa}</p></td>
+                        <td className="tb-danhGia">
+                            {renderRating(movie.danhGia)}
+                        </td>
+                        <td className="tb-dangChieu"><p className={movie.dangChieu ? "circle  mb-0  mt-2 circle-dangChieu" : "circle  mb-0  mt-2"}></p></td>
+                        <td className="tb-sapChieu"><p className={movie.sapChieu ? "circle  mb-0  mt-2 circle-sapChieu" : "circle  mb-0  mt-2"} ></p></td>
+                        <td className="tb-hot"><p className={movie.hot ? "circle  mb-0  mt-2 circle-hot" : "circle  mb-0  mt-2"}></p></td>
+                        <td className="tb-setting">
+                            <button className="mr-2 mt-2 xoa" onClick={() => handleClick(movie.maPhim, movie.tenPhim)}>Xoá</button>
+                            <button className="sua mt-2" onClick={() => handleSua(movie)}>Sửa</button>
+                        </td>
+                    </tr>
+                )
+            })
+        }
+
+        if (movies && searchPhimValue) {
+            const mangSearch = movies.filter(phim => removeVietnameseTones(phim.tenPhim).toLowerCase().trim().replaceAll(" ", "").match(removeVietnameseTones(searchPhimValue).toLowerCase().trim().replaceAll(" ", "")))
+
+            if (mangSearch.length === 0) {
+                return (
+                    <tr >
+                        <td colSpan={11} className="tb-stt">Không tìm thấy kết quả.</td>
+                    </tr>
+                )
+            }
+
+            return mangSearch.map((movie, index) => {
+                return (
+                    <tr className={(index + 1) % 2 === 0 ? "" : "le"} key={index}>
+                        <td className="tb-stt">{index + 1}</td>
+                        <td className="tb-maPhim">{movie.maPhim}</td>
+                        <td className="tb-hinhAnh">
+                            <img src={movie.hinhAnh} alt={movie.tenPhim} />
+                        </td>
+                        <td className="tb-tenPhim"><p className="m-0">{movie.tenPhim.toLowerCase()}</p></td>
+                        <td className="tb-biDanh"><p className="m-0">{movie.biDanh}</p></td>
+                        <td className="tb-moTa"><p className="m-0">{movie.moTa}</p></td>
+                        <td className="tb-danhGia">
+                            {renderRating(movie.danhGia)}
+                        </td>
+                        <td className="tb-dangChieu"><p className={movie.dangChieu ? "circle  mb-0  mt-2 circle-dangChieu" : "circle  mb-0  mt-2"}></p></td>
+                        <td className="tb-sapChieu"><p className={movie.sapChieu ? "circle  mb-0  mt-2 circle-sapChieu" : "circle  mb-0  mt-2"} ></p></td>
+                        <td className="tb-hot"><p className={movie.hot ? "circle  mb-0  mt-2 circle-hot" : "circle  mb-0  mt-2"}></p></td>
+                        <td className="tb-setting">
+                            <button className="mr-2 mt-2 xoa" onClick={() => handleClick(movie.maPhim, movie.tenPhim)}>Xoá</button>
+                            <button className="sua mt-2" onClick={() => handleSua(movie)}>Sửa</button>
+                        </td>
+                    </tr>
+                )
+            })
+        }
+        
     }
 
     const handleClick = (maPhim, tenPhim) => {
@@ -113,7 +164,7 @@ export default function QuanLyPhim() {
             <div className="mainContent">
                 <div className="d-flex justify-content-between mb-3 align-items-center res">
                     <h2>Quản lý phim</h2>
-                    <button className="addBTn" onClick={themPhim}><i class="fas fa-plus mr-2"></i>Thêm phim mới</button>
+                    <button className="addBTn" onClick={themPhim}><i className="fas fa-plus mr-2"></i>Thêm phim mới</button>
                 </div>
                 <div className="quanLyPhimContent">
                     <table>
@@ -133,7 +184,8 @@ export default function QuanLyPhim() {
                             </tr>
                         </thead>
                         <tbody>
-                            {movies && renderTable()}
+                            {/* {searchPhimValue && movies && renderTable(movies, 0)} */}
+                            {renderTable()}
                         </tbody>
                     </table>
                 </div>
